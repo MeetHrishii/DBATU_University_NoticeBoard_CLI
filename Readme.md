@@ -4,6 +4,7 @@ As of me I was always forgetting to check universities site for updates, So I cr
 With help of this script we can get updated in a single command and save some time which is very convinient for me.
 
 Few suggestions:
+
 	- You can add symlink in path in linux and run script from anywhere in terminal.
 	- If you're on Linux distro you can automate this script to run every week or so.
 
