@@ -1,6 +1,6 @@
 <h1>DBATU University Notice Board CLI</h1>
 
-A script for DBATU students. Automates the process of checking updates on univesity site and is easy to read.
+A script for DBATU students. Automates the process of checking updates on university site and is easy to read.
 
 <h3>Install the required modules first.</h3>
 
