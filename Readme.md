@@ -1,3 +1,11 @@
+DBATU University Notice Board CLI
+
+A script for DBATU students. Automates the process of checking updates on univesity site and is easy to read.
+
+Install the required modules first.
+	- pip install -r requirements.txt
+
+
 Welcome to this project.
 	If you are viewing this project you are probably a BATU University student like me. 
 As of me I was always forgetting to check universities site for updates, So I created this script to help me out.
