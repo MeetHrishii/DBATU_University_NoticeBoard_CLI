@@ -12,8 +12,11 @@ URL = "https://dbatu.ac.in/category/notices/"
 console = Console()
 console.print("[link=https://dbatu.ac.in/category/notices/]DBATU UNIVERSITY NOTICE BOARD[/link] [blink]:red_heart-emoji:[/blink]",style="bold blue underline") 
 
+try:
+    response = requests.get(URL)
+except(ConnectionError,ConnectionAbortedError,ConnectionRefusedError,ConnectionResetError):
+    response = requests.get(URL)
 
-response = requests.get(URL)
 soup = BeautifulSoup(response.content, "html.parser")
 results = soup.find(class_="container")
 articles = results.findAll("article", class_ ="category-notices")
@@ -24,7 +27,7 @@ for article in articles:
     issue_date = article.find(class_="entry-date published").text.strip()
     Title = article.find(class_="entry-title").text.strip()
     description = article.find(class_="entry-content").text.strip()
-  
+    
     console.print(f"\n{issue_date}",style="")
     console.print(f"[bold red]Notice [/bold red]: [bold white]{Title}[/bold white]")
     if description:
