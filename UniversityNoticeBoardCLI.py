@@ -6,6 +6,7 @@ from rich.console import Console
 
 headers = dict()
 headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36."
+# URL = "https://dbatu.ac.in/category/notices/"
 URL = "https://dbatu.ac.in/category/notices/"
 
 
@@ -14,17 +15,23 @@ console.print("[link=https://dbatu.ac.in/category/notices/]DBATU UNIVERSITY NOTI
 
 try:
     response = requests.get(URL)
+    # print("debugging\n")
 except(ConnectionError,ConnectionAbortedError,ConnectionRefusedError,ConnectionResetError):
     response = requests.get(URL)
+    # print("debugging\n")
 
 soup = BeautifulSoup(response.content, "html.parser")
-results = soup.find(class_="container")
+results = soup.find(class_="site-main")
 articles = results.findAll("article", class_ ="category-notices")
 
 
 
 for article in articles:
-    issue_date = article.find(class_="entry-date published").text.strip()
+    try:
+        issue_date = article.find(class_="entry-date published").text.strip()
+    except (AttributeError):
+        issue_date = article.find(class_="entry-date published updated").text.strip()
+
     Title = article.find(class_="entry-title").text.strip()
     description = article.find(class_="entry-content").text.strip()
     
